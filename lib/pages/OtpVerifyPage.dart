@@ -1,4 +1,5 @@
-import 'package:agrotechnew/pages/Setpassword_Page.dart';
+import 'package:agrotechnew/pages/HomePage.dart';
+import 'package:agrotechnew/pages/SetPasswordPage.dart';
 import 'package:flutter/material.dart';
 
 
@@ -11,6 +12,7 @@ class Otpverify extends StatefulWidget {
 class _State extends State<Otpverify> {
 
   String _username, _password;
+  //final bool flag=false;
   TextEditingController nameController = TextEditingController();
 //  TextEditingController passwordController = TextEditingController();
 
@@ -19,6 +21,7 @@ class _State extends State<Otpverify> {
     return Scaffold(
         appBar: AppBar(
           title: Text('AgroTech'),
+          backgroundColor: Colors.green,
         ),
         body: Padding(
             padding: EdgeInsets.all(10),
@@ -30,10 +33,11 @@ class _State extends State<Otpverify> {
                     child: Text(
                       'Please enter OTP received on your mobile number',
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.grey,
                           fontWeight: FontWeight.w500,
-                          fontSize: 30),
+                          fontSize: 25),
                     )),
+
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
@@ -41,8 +45,21 @@ class _State extends State<Otpverify> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Enter OTP',
+                      hintText: 'Please enter 4 digit OTP number',
+                      suffixIcon: Icon(Icons.security),
                     ),
+                    maxLength: 4,
+                    keyboardType: TextInputType.number,
                   ),
+
+                ),
+                FlatButton(
+                  onPressed: (){
+                   // Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotpasswordPage()));
+                    //forgot password screen
+                  },
+                  textColor: Colors.grey,
+                  child: Text('Resend OTP'),
                 ),
 
 
@@ -51,10 +68,19 @@ class _State extends State<Otpverify> {
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: Colors.grey,
                       child: Text('Verify OTP'),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SetpasswordPage()));
+                        if(true)
+                          {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>SetpasswordPage()));
+                          }else
+                            {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>HomepagePage()));
+                            }
+
+
+
                         print(nameController.text);
                         // print(passwordController.text);
                       },

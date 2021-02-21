@@ -1,5 +1,5 @@
-import 'package:agrotechnew/pages/Otpverify_Page.dart';
-import 'package:agrotechnew/pages/Setpassword_Page.dart';
+import 'package:agrotechnew/pages/OtpVerifyPage.dart';
+import 'package:agrotechnew/pages/SetPasswordPage.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,7 +19,8 @@ class _State extends State<ForgotpasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('AgroTech'),
+          title: Text('Agrotech'),
+          backgroundColor: Colors.green,
         ),
         body: Padding(
             padding: EdgeInsets.all(10),
@@ -31,9 +32,9 @@ class _State extends State<ForgotpasswordPage> {
                     child: Text(
                       'Forgot Password',
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.grey,
                           fontWeight: FontWeight.w500,
-                          fontSize: 30),
+                          fontSize: 25),
                     )),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -42,7 +43,11 @@ class _State extends State<ForgotpasswordPage> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Mobile Number',
+                      hintText: 'Please enter your 10 digit mobile number',
+                      suffixIcon: Icon(Icons.phone),
                     ),
+                    maxLength: 10,
+                    keyboardType: TextInputType.number,
                   ),
                 ),
 
@@ -52,7 +57,7 @@ class _State extends State<ForgotpasswordPage> {
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: Colors.grey,
                       child: Text('Submit'),
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Otpverify()));

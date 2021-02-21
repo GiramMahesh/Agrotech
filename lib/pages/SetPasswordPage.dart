@@ -11,14 +11,15 @@ class SetpasswordPage extends StatefulWidget {
 class _State extends State<SetpasswordPage> {
 
   String _username, _password;
-  TextEditingController nameController = TextEditingController();
-//  TextEditingController passwordController = TextEditingController();
+  TextEditingController newpasswordController = TextEditingController();
+  TextEditingController confirmnewpasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text('AgroTech'),
+          backgroundColor: Colors.green,
         ),
         body: Padding(
             padding: EdgeInsets.all(10),
@@ -30,27 +31,31 @@ class _State extends State<SetpasswordPage> {
                     child: Text(
                       'Set New Password',
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.grey,
                           fontWeight: FontWeight.w500,
-                          fontSize: 30),
+                          fontSize: 25),
                     )),
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: nameController,
+                    controller: newpasswordController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'New Password',
+                      hintText: 'Please enter New Password',
+                      suffixIcon: Icon(Icons.remove_red_eye),
                     ),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: nameController,
+                    controller: confirmnewpasswordController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Confirm New Password',
+                      hintText: 'Please enter same New Password again',
+                      suffixIcon: Icon(Icons.remove_red_eye),
                     ),
                   ),
                 ),
@@ -61,7 +66,7 @@ class _State extends State<SetpasswordPage> {
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RaisedButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: Colors.grey,
                       child: Text('Submit'),
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>HomepagePage()));
